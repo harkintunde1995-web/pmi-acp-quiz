@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { ASSESSMENT_TYPES, GAMIFICATION } from '@/lib/types'
 
 export default function Home() {
-  const [totalStats, setTotalStats] = useState({
+  const totalStats = {
     totalQuestions: 420,
     assessments: 5,
     domains: 7,
     badges: GAMIFICATION.BADGES.length,
-  })
+  }
 
   const [userStats, setUserStats] = useState({
     quizzesCompleted: 0,
