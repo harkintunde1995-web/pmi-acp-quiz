@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { Question, QuizzesData, DOMAINS } from '@/lib/types'
-import { calculateXP, calculateLevel } from '@/lib/gamification'
 
 export default function QuizPage() {
   const params = useParams()
