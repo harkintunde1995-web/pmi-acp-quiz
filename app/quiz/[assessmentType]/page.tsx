@@ -36,7 +36,12 @@ export default function QuizPage() {
         }
 
         const filtered = data.questions.filter((q) => q.assessment_type === typeMap[assessmentType])
-        setQuestions(filtered)
+        const questionLimits: Record<string, number> = { 'mini-test': 20 }
+        const limit = questionLimits[assessmentType]
+        const finalQuestions = limit
+          ? [...filtered].sort(() => Math.random() - 0.5).slice(0, limit)
+          : filtered
+        setQuestions(finalQuestions)
 
         const timePerQuestion = 1.5 * 60
         setTimeLeft(Math.ceil(filtered.length * timePerQuestion))
@@ -383,7 +388,7 @@ export default function QuizPage() {
                 const showFeedback = answered
                 const isCorrect = option === currentQuestion.correct_answer
 
-                let optionClass = 'option-card'
+                let optionClass = 'option-card group'
                 if (isSelected && isAnswerCorrect) optionClass += ' correct'
                 if (isSelected && !isAnswerCorrect) optionClass += ' incorrect'
                 if (showFeedback && !isSelected && isCorrect) optionClass += ' correct'

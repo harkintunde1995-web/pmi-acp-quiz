@@ -5,6 +5,11 @@ import Link from 'next/link'
 import { ASSESSMENT_TYPES, GAMIFICATION } from '@/lib/types'
 
 export default function Home() {
+  const examDate = new Date('2026-06-01T00:00:00')
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const daysRemaining = Math.max(0, Math.ceil((examDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)))
+
   const totalStats = {
     totalQuestions: 420,
     assessments: 5,
@@ -38,18 +43,22 @@ export default function Home() {
             <h2 className="text-3xl lg:text-5xl font-display font-extrabold mb-4 leading-tight">Master the PMI-ACP Exam</h2>
             <p className="text-blue-100 text-lg opacity-90 mb-0">420 expertly-crafted questions, 7 domains, real-time scoring. Prepare for exam day with data-driven learning.</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-2">Exam Countdown</p>
-            <div className="flex gap-4 items-center">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center min-w-[180px]">
+            <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-3">Exam Countdown</p>
+            <div className="flex gap-4 items-center justify-center">
               <div className="text-center">
-                <span className="text-3xl font-display font-extrabold block">June 1</span>
-                <span className="text-xs font-medium text-blue-100">2026</span>
+                <span className="text-4xl font-display font-black block tabular-nums">{daysRemaining}</span>
+                <span className="text-xs font-medium text-blue-100">days left</span>
               </div>
               <div className="w-px h-10 bg-white/20"></div>
-              <div className="flex flex-col items-center">
-                <span className="material-icons-round text-2xl">fitness_center</span>
-                <span className="text-xs font-bold">Let's crush it!</span>
+              <div className="text-center">
+                <span className="text-lg font-display font-bold block">June 1</span>
+                <span className="text-xs font-medium text-blue-100">2026</span>
               </div>
+            </div>
+            <div className="flex items-center justify-center gap-1 mt-3 text-blue-200">
+              <span className="material-icons-round text-sm">bolt</span>
+              <span className="text-xs font-bold">{daysRemaining > 0 ? "Let's crush it!" : 'Exam day!'}</span>
             </div>
           </div>
         </div>
@@ -231,7 +240,7 @@ export default function Home() {
       </section>
 
       <footer className="pt-10 pb-2 text-center">
-        <p className="text-sm text-slate-400">© 2024 PMI-ACP Quiz Master. Designed for focused learning.</p>
+        <p className="text-sm text-slate-400">© 2026 PMI-ACP Quiz Master. Designed for focused learning.</p>
       </footer>
     </div>
   )
