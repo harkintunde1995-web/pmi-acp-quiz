@@ -4,6 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'PMI-ACP Quiz Master',
   description: 'Master the PMI-ACP exam with 420 questions, 7 domains, and gamified learning',
+  icons: { icon: '/favicon.svg' },
 }
 
 export default function RootLayout({
