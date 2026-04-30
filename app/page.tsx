@@ -42,7 +42,7 @@ export default function Home() {
             <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-2">Exam Countdown</p>
             <div className="flex gap-4 items-center">
               <div className="text-center">
-                <span className="text-3xl font-display font-extrabold block">April 20</span>
+                <span className="text-3xl font-display font-extrabold block">June 1</span>
                 <span className="text-xs font-medium text-blue-100">2026</span>
               </div>
               <div className="w-px h-10 bg-white/20"></div>
