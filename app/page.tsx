@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ASSESSMENT_TYPES, GAMIFICATION } from '@/lib/types'
 
 export default function Home() {
-  const examDate = new Date('2026-06-01T00:00:00')
+  const examDate = new Date('2026-06-27T09:00:00')
   const today = new Date()
   today.setHours(0, 0, 0, 0)
   const daysRemaining = Math.max(0, Math.ceil((examDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)))
@@ -52,7 +52,7 @@ export default function Home() {
               </div>
               <div className="w-px h-10 bg-white/20"></div>
               <div className="text-center">
-                <span className="text-lg font-display font-bold block">June 1</span>
+                <span className="text-lg font-display font-bold block">June 27</span>
                 <span className="text-xs font-medium text-blue-100">2026</span>
               </div>
             </div>
